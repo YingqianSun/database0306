@@ -144,3 +144,9 @@ show tables from scott;
 show full columns from Scott.dept;
 show full columns from Scott.emp;
 show full columns from Scott.salgrade;
+select *
+from dept;
+select *
+from emp;
+select *
+from salgrade;

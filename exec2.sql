@@ -1,8 +1,22 @@
 # 1. 返回拥有员工的部门名、部门号
+/*select distinct DEPTNO
+from scott.emp where DEPTNO is not null;*/
+select distinct dept.DEPTNO, dept.DNAME
+from emp
+       join dept
+            on emp.DEPTNO = dept.DEPTNO;
 # 2. 工资多于 scott 的员工信息
+select *
+from emp where SAL > (select SAL from emp where ENAME = 'scott');
 # 3. 返回员工和所属经理的姓名?
+select ENAME
+from emp;
 # 4. 返回雇员的雇佣日期早于其经理雇佣日期的员工及其经理姓名
+
 # 5. 返回员工姓名及其所在的部门名称
+select *
+from emp
+join ;
 # 6. 返回从事 clerk 工作的员工姓名和所在部门名称
 # 7. 返回部门号及其本部门的最低工资
 # 8. 返回销售部 sales 所有员工的姓名
