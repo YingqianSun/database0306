@@ -24,6 +24,7 @@ from scott.emp where COMM is not null;
 select *
 from scott.emp where (COMM < 100) or (COMM is null);
 # 9. 查找员工雇佣日期是当月的最后一天的员工信息
+
 # 10. 检索出雇佣年限超过 35 年的员工信息
 # 11. 找出姓名以 A、B、S 开始的员工信息
 select *

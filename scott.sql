@@ -30,11 +30,12 @@ USE `scott`;
 DROP TABLE IF EXISTS `dept`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dept` (
-                      `DEPTNO` INT(2) NOT NULL,
-                      `DNAME`  VARCHAR(14) DEFAULT NULL,
-                      `LOC`    VARCHAR(13) DEFAULT NULL,
-                      PRIMARY KEY (`DEPTNO`)
+CREATE TABLE `dept`
+(
+  `DEPTNO` INT(2) NOT NULL,
+  `DNAME`  VARCHAR(14) DEFAULT NULL,
+  `LOC`    VARCHAR(13) DEFAULT NULL,
+  PRIMARY KEY (`DEPTNO`)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -47,8 +48,11 @@ CREATE TABLE `dept` (
 LOCK TABLES `dept` WRITE;
 /*!40000 ALTER TABLE `dept`
   DISABLE KEYS */;
-INSERT INTO `dept` VALUES (10, 'ACCOUNTING', 'NEW YORK'), (20, 'RESEARCH', 'DALLAS'), (30, 'SALES', 'CHICAGO'),
-                          (40, 'OPERATIONS', 'BOSTON');
+INSERT INTO `dept`
+VALUES (10, 'ACCOUNTING', 'NEW YORK'),
+       (20, 'RESEARCH', 'DALLAS'),
+       (30, 'SALES', 'CHICAGO'),
+       (40, 'OPERATIONS', 'BOSTON');
 /*!40000 ALTER TABLE `dept`
   ENABLE KEYS */;
 UNLOCK TABLES;
@@ -60,18 +64,19 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `emp`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `emp` (
-                     `EMPNO`    INT(4) NOT NULL,
-                     `ENAME`    VARCHAR(10)  DEFAULT NULL,
-                     `JOB`      VARCHAR(9)   DEFAULT NULL,
-                     `MGR`      INT(4)       DEFAULT NULL,
-                     `HIREDATE` DATE         DEFAULT NULL,
-                     `SAL`      DOUBLE(7, 2) DEFAULT NULL,
-                     `COMM`     DOUBLE(7, 2) DEFAULT NULL,
-                     `DEPTNO`   INT(2)       DEFAULT NULL,
-                     PRIMARY KEY (`EMPNO`),
-                     KEY `FK_emp_deptno` (`DEPTNO`),
-                     CONSTRAINT `FK_emp_deptno` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)
+CREATE TABLE `emp`
+(
+  `EMPNO`    INT(4) NOT NULL,
+  `ENAME`    VARCHAR(10)  DEFAULT NULL,
+  `JOB`      VARCHAR(9)   DEFAULT NULL,
+  `MGR`      INT(4)       DEFAULT NULL,
+  `HIREDATE` DATE         DEFAULT NULL,
+  `SAL`      DOUBLE(7, 2) DEFAULT NULL,
+  `COMM`     DOUBLE(7, 2) DEFAULT NULL,
+  `DEPTNO`   INT(2)       DEFAULT NULL,
+  PRIMARY KEY (`EMPNO`),
+  KEY `FK_emp_deptno` (`DEPTNO`),
+  CONSTRAINT `FK_emp_deptno` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -84,19 +89,20 @@ CREATE TABLE `emp` (
 LOCK TABLES `emp` WRITE;
 /*!40000 ALTER TABLE `emp`
   DISABLE KEYS */;
-INSERT INTO `emp` VALUES (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600.00, 300.00, 30),
-                         (7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250.00, 500.00, 30),
-                         (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975.00, NULL, 20),
-                         (7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250.00, 1400.00, 30),
-                         (7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850.00, NULL, 30),
-                         (7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450.00, NULL, 10),
-                         (7788, 'SCOTT', 'ANALYST', 7566, '1987-07-13', 3000.00, NULL, 20),
-                         (7839, 'KING', 'PRESIDENT', NULL, '1981-11-30', 5000.00, NULL, NULL),
-                         (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500.00, 0.00, 30),
-                         (7876, 'ADAMS', 'CLERK', 7788, '1987-07-13', 1100.00, NULL, 20),
-                         (7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950.00, NULL, 30),
-                         (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20),
-                         (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300.00, NULL, 10);
+INSERT INTO `emp`
+VALUES (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600.00, 300.00, 30),
+       (7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250.00, 500.00, 30),
+       (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975.00, NULL, 20),
+       (7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250.00, 1400.00, 30),
+       (7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850.00, NULL, 30),
+       (7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450.00, NULL, 10),
+       (7788, 'SCOTT', 'ANALYST', 7566, '1987-07-13', 3000.00, NULL, 20),
+       (7839, 'KING', 'PRESIDENT', NULL, '1981-11-30', 5000.00, NULL, NULL),
+       (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500.00, 0.00, 30),
+       (7876, 'ADAMS', 'CLERK', 7788, '1987-07-13', 1100.00, NULL, 20),
+       (7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950.00, NULL, 30),
+       (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20),
+       (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300.00, NULL, 10);
 /*!40000 ALTER TABLE `emp`
   ENABLE KEYS */;
 UNLOCK TABLES;
@@ -108,10 +114,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `salgrade`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `salgrade` (
-                          `GRADE` INT(11) DEFAULT NULL,
-                          `LOSAL` INT(11) DEFAULT NULL,
-                          `HISAL` INT(11) DEFAULT NULL
+CREATE TABLE `salgrade`
+(
+  `GRADE` INT(11) DEFAULT NULL,
+  `LOSAL` INT(11) DEFAULT NULL,
+  `HISAL` INT(11) DEFAULT NULL
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -124,7 +131,12 @@ CREATE TABLE `salgrade` (
 LOCK TABLES `salgrade` WRITE;
 /*!40000 ALTER TABLE `salgrade`
   DISABLE KEYS */;
-INSERT INTO `salgrade` VALUES (1, 700, 1200), (2, 1201, 1400), (3, 1401, 2000), (4, 2001, 3000), (5, 3001, 9999);
+INSERT INTO `salgrade`
+VALUES (1, 700, 1200),
+       (2, 1201, 1400),
+       (3, 1401, 2000),
+       (4, 2001, 3000),
+       (5, 3001, 9999);
 /*!40000 ALTER TABLE `salgrade`
   ENABLE KEYS */;
 UNLOCK TABLES;
@@ -139,7 +151,7 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES = @OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-07-20 11:10:57
-show databases ;
+show databases;
 show tables from scott;
 show full columns from Scott.dept;
 show full columns from Scott.emp;
@@ -150,3 +162,77 @@ select *
 from emp;
 select *
 from salgrade;
+
+
+-- 0311
+create table scott.new_emp
+select *
+from scott.emp;
+
+select *
+from scott.new_emp;
+
+delete
+from scott.new_emp;
+
+insert into scott.new_emp
+  (empno, ename, deptno)
+select EMPNO, ENAME, DEPTNO
+from scott.emp;
+
+create or replace view scott.v_emp -- 创建视图
+as
+select ENAME, JOB, DEPTNO
+from scott.emp
+where DEPTNO = 30;
+
+select *
+from scott.v_emp;
+
+select ENAME, DNAME
+from scott.emp e
+       inner join scott.dept d
+                  on e.DEPTNO = d.DEPTNO
+where ENAME = 'allen';
+
+create or replace view scott.v_name
+as
+select e.EMPNO, e.ENAME, d.DNAME
+from scott.emp e
+       inner join scott.dept d
+                  on e.DEPTNO = d.DEPTNO;
+
+select *
+from scott.v_name
+where ENAME = 'allen';
+
+start transaction ;  -- 事务
+-- DMLs处理
+delete
+from scott.emp
+where ENAME = 'allen';
+
+savepoint a;
+
+update scott.emp
+set SAL = 2000
+where ENAME = 'martin';
+
+savepoint b;
+
+select *
+from scott.emp;
+
+rollback  to a;
+rollback  to b;
+
+rollback ;   -- 回滚
+commit ;   -- 提交
+
+-- DDL隐式结束
+create table scott.test(
+  id int
+);
+
+
+
