@@ -2,6 +2,14 @@
 
 各列值的快速模糊查询
 排名前十的密码
+create index ind_password on db_csdn.user(password);
+
+select password,count(password)
+from db_csdn.user
+group by password
+order by 2 desc
+limit 0,10;
+
 排名前十的邮箱
 select email,count(email)
 from db_csdn.user
